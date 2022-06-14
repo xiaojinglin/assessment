@@ -58,8 +58,8 @@ def func(zip_data):
     The return value is:
     1. If there is only one largest zip file, the function will return a list of pdf names belonging
     to the largest zip file.
-    2. If there are more than one largest zip file, the function will return a dictionary
-    with zip_name as the key, and a list of pdf files belonging to the zip file as the value
+    2. If there are more than one largest zip file, the function will return a dictionary with zip_name as the key, 
+    and a list of pdf files belonging to the zip file as the value
     '''
     
     dict_zip = {}   #A dictionary to save the zip name and zip size
@@ -69,14 +69,14 @@ def func(zip_data):
         pdf_size = tup[2]
         dict_zip[zip_name] = dict_zip.get(zip_name,0) + pdf_size  
                                                                                                                                  
-    ###############################################
-    #Python dictionary method get() returns a value for the given key. 
-    # If key is not available then returns default value.
-    #Syntax: dict.get(key, default = None)
-    #Parameters
-    #key: This is the Key to be searched in the dictionary.
-    #default : This is the Value to be returned in case key does not exist.
-    ###############################################
+    ######################################################################################################################
+    #   Python dictionary method get() returns a value for the given key. 
+    #   If key is not available then returns default value.
+    #   Syntax: dict.get(key, default = None)
+    #   Parameters
+    #   key: This is the Key to be searched in the dictionary.
+    #   default : This is the Value to be returned in case key does not exist.
+    #######################################################################################################################
    
     list_zip_size = list(dict_zip.values())    #Get the value of all the zip size and save them in a list
     max_size = max(list_zip_size)       #Get the largest size of all the zip files
@@ -86,20 +86,20 @@ def func(zip_data):
         if zip_size == max_size:
             max_zip_name.append(zip_name)
     
-    ################################################
-    #Another way to get the max_zip_name list: List comprehension which uses less code and run faster but is not as readable 
-    #max_zip_name = [zip_name for zip_name,zip_size in dict_zip.items() if zip_size==max_size]
-    #####################################################
+    ########################################################################################################################
+    #   Another way to get the max_zip_name list: List comprehension which uses less code and run faster but is not as readable 
+    #   max_zip_name = [zip_name for zip_name,zip_size in dict_zip.items() if zip_size==max_size]
+    ########################################################################################################################
    
     dict_file = {}   #A dictionary to store the largest zip name and its pdf names, the key of dictionary is zip name, value is a list of pdf names belong to the zip
     for m_zip in max_zip_name:
-        list_pdf = [] #A list to store the pdf names
+        list_pdf = []   #A list to store the pdf names
         for tup in zip_data:    #Loop through the zip_data to get the pdf name belonging to the zip file
             zip_name = tup[0]
             pdf_name = tup[1]
             if zip_name == m_zip:
                 list_pdf.append(pdf_name)
-        dict_file[m_zip] = list_pdf
+        dict_file[m_zip] = list_pdf     #Insert zip name and pdf files into to dictionary
     
     if len(max_zip_name) == 1:    #If there is only one largest zip file, return the list of the pdf names belonging to the largest zip file
         zip_name = max_zip_name[0]
