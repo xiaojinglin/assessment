@@ -54,12 +54,12 @@ def func(zip_data):
     '''
     This function uses a dictionary to store zip names and its sizes, 
     and get the zip name of the largest zip file, loop through the zip_data to get the 
-    pdf files belong to the zip file. 
+    pdf files belonging to the zip file. 
     The return value is:
-    1. If there is only one largest zip file, the function will return a list of pdf names belong
+    1. If there is only one largest zip file, the function will return a list of pdf names belonging
     to the largest zip file.
     2. If there are more than one largest zip file, the function will return a dictionary
-    with zip_name as the key, and a list of pdf files belong to the zip file as the value
+    with zip_name as the key, and a list of pdf files belonging to the zip file as the value
     '''
     
     dict_zip = {}   #A dictionary to save the zip name and zip size
@@ -94,14 +94,14 @@ def func(zip_data):
     dict_file = {}   #A dictionary to store the largest zip name and its pdf names, the key of dictionary is zip name, value is a list of pdf names belong to the zip
     for m_zip in max_zip_name:
         list_pdf = [] #A list to store the pdf names
-        for tup in zip_data:    #Loop through the zip_data to get the pdf name belongs to the zip file
+        for tup in zip_data:    #Loop through the zip_data to get the pdf name belonging to the zip file
             zip_name = tup[0]
             pdf_name = tup[1]
             if zip_name == m_zip:
                 list_pdf.append(pdf_name)
         dict_file[m_zip] = list_pdf
     
-    if len(max_zip_name) == 1:    #If there is only one largest zip file, return the list of the pdf names belongs to the largest zip file
+    if len(max_zip_name) == 1:    #If there is only one largest zip file, return the list of the pdf names belonging to the largest zip file
         zip_name = max_zip_name[0]
         return dict_file[zip_name]
     else:   #If there are more that one largest zip file, return the dictionary with the zip name and pdf name
