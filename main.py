@@ -52,8 +52,8 @@ data = generate_zip_data()
 ########################################## Implement your algorithm here ###################################
 def func(zip_data):
     '''
-    This function uses a dictionary to store zip names and and zip sizes of the zip_data, 
-    and get the zip name of the largest zip file and loop through the zip_data to get the 
+    This function uses a dictionary to store zip names and its sizes, 
+    and get the zip name of the largest zip file, loop through the zip_data to get the 
     pdf files belong to the zip file. 
     The return value is:
     1. If there is only one largest zip file, the function will return a list of pdf names belong
@@ -78,7 +78,7 @@ def func(zip_data):
     #default : This is the Value to be returned in case key does not exist.
     ###############################################
    
-    list_zip_size = list(dict_zip.values())    #Get the values of all the zip size and save them in a list
+    list_zip_size = list(dict_zip.values())    #Get the value of all the zip size and save them in a list
     max_size = max(list_zip_size)       #Get the largest size of all the zip files
    
     max_zip_name = []       #A list to store the name of the largest zip file, in case there are more that one zip file having the same largest size
